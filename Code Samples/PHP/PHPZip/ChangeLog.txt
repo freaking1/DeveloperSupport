@@ -1,0 +1,185 @@
+9-5-2004
+Added support for co.uk and org.uk domain registration 
+
+9-8-2004
+-Added error checking
+-Includes a php.info file for checking php configuration
+-built in support for php configuration
+
+9-9-2004
+-Moved Default Name server configuration to includes directory for easier finding/editing
+
+10-1-2004
+-Added EPP Transfers
+-Added Auto Verification Transfers
+-Added Transfer Error Checking and order Histories
+
+1-5-05
+-Updated Index error checking
+-Updated .htaccess values for better local settings
+-Updated check.php file to address some users problems with session variables
+
+1-20-05 
+- Updated Documentation in resource directory
+- Updated check and registername to use get method instead of sessions to pass sld/tld
+
+2-15-05
+- Created nsmaint page - Name server creation and management
+
+3-29-05
+- Changed method of parsing domain for 3rd level domains
+- Added in/jp and adams names support for check and registration.
+	
+Affected Files:
+	-LogIn.php
+	-RegisterName.php
+	-include/tldListOne2.php
+
+5-9-05
+- Added Adams Names for Check
+- Added Adams Names, in/jp for whois
+- re-wrote whois engine and added tablular parsing
+- added DNS Hosting section
+	
+	Affected Files:
+	-index.php
+	-whois.php
+	-include/tldListOne2.php
+	-Setup/tldListOne.php
+
+5-10-05
+- Added DNSHosting.php and options to purchase DNS Hosting
+- Fixed tables in whois
+- Added EndUserIp param to purchase and purchasehosting commands when using enoms CC processing
+- EndUserIP tweaks
+
+	Affected Files:
+	-RegisterName.php
+	-DNSHosting.php
+	-Whois.php
+	-include/sessions.php
+
+5-13-05
+- Fixed problem with DNS Hosting orders
+- Updated CC year page
+- Fixed Error page handling of existing variables
+	
+	Affected Files
+	- DnsHosting.php
+	- include/creditcard.php
+	- include/RegistrationError.php
+
+5-16-05
+- Updated DomainMain.php to act different for dns hosted domains
+- Misc updates to pages to restrict access to certian functions if dns hosted
+- Made design layout normalized between pages
+- Updated Forwarding section to be larger for better layout and viewing of target addresses
+
+	Affected Files
+	- DomainMain.php
+	- DomainMainHosted.php
+	- LogIn.php
+	- DomainContacts.php
+	- DomainExp.php
+	- DomainNs.php
+	- nsmaint.php
+	- SelectService.php
+	- include/hosts.php
+	- hostInstructions.php
+	- include/forwarding.php
+
+5-25-05
+- Updated RegisterName.php due to incorrect var
+- Removed Auto renew option during registration
+- Added debug info to help troubleshooting
+
+	Affected Files
+	- RegisterName.php
+	- include/ca.php
+
+
+
+5-27-05
+- Moved Server vars one place for easier setup
+- Added ability to purchase and manage IDProtect
+- Fixed problem with Renewals
+- Removed Auto Renew (delted file SelectService.php)
+- Moved Lock management to DomainMain.php
+
+	Affected Files
+	- include/sessions.php
+	- include/EnomInterface_inc.php
+	- DomainMain.php
+	- getidprotect.php
+	- SuccessIDP.php
+	- DomainExp.php
+
+6-21-05
+- Updated Documentation, new API command catalog included
+- Fixed STERROR() function errors with some users
+- Added/Moved Centralized Pricing
+- Added/Moved Centralized Vars
+- Created Pricing table for main page, and expanded pricing table popup
+- Added Framework for Paypal for future release
+
+	Affected Files
+	- Setup/TldListOne.php
+	- include/EnomInterface_inc.php
+	- include/sessions.php
+	- include/pricing_small.php
+	- pricing.php
+	- RegisterName.php
+	- DnsHosting.php
+	- index.php
+
+8-25-05
+- Updated documentation
+- Included new GETAGREEMENTPAGE for resellers to add the Dynamic enom agreement to their site.
+- Added new vars to Sessions.php for centralized management
+- Added paypal integration ONLY for new registrations as a guide.  
+     Resellers may integrate into renewals or transfers should they desire
+- Added SMTP authentication for emails sent out using phpmailer class
+
+	Affected Files:
+	- include/EnomInterface_inc.php
+	- include/sessions.php
+	- include/pricing_small.php
+	- pricing.php
+	- Index.php
+	- LogIn.php
+	- LogOut.php
+	- RegisterName.php
+	- PayforName.php
+	- ppsuccess.php
+	- agreement.php
+	- Success.php
+	- include/class.phpmailer.php
+	- include/class.smtp.php
+	- include/creditcard.php
+	- include/footer.php
+	- include/language Directory
+		phpmailer.lang-br.php
+		phpmailer.lang-ca.php
+		phpmailer.lang-cz.php
+		phpmailer.lang-de.php
+		phpmailer.lang-dk.php
+		phpmailer.lang-en.php
+		phpmailer.lang-es.php
+		phpmailer.lang-fi.php
+		phpmailer.lang-fo.php
+		phpmailer.lang-fr.php
+		phpmailer.lang-hu.php
+		phpmailer.lang-it.php
+		phpmailer.lang-ja.php
+		phpmailer.lang-nl.php
+		phpmailer.lang-no.php
+		phpmailer.lang-pl.php
+		phpmailer.lang-ro.php
+		phpmailer.lang-ru.php
+		phpmailer.lang-se.php
+		phpmailer.lang-tr.php
+	- include/config.inc.php
+	- include/global_config.inc.php
+
+8-26-05
+- Added advanced php/mysql site to the scripts folder

@@ -1,0 +1,56 @@
+CONTENTS
+--------
+
+This package contains the entire distribution of client software for
+eNom's reseller interface.
+
+Directory		Contents
+--------------		--------------------------------
+/installation		Description of installing scripts and setting up client UI
+
+	PHPInstall.txt
+
+
+/resource_docs		additional documents for setting up client UI and development process
+
+	ciraRegistrationRules.txt
+	Country_Codes.txt
+	creditcardFAKE.txt
+	DNS commands.txt
+	dotNameForwarding.txt
+	RRP_codes.txt
+	transfers.doc
+	APICommandCatalog.pdf
+
+
+/scripts		Reseller scripts - the client software
+
+	ChangeNameEmail.php
+	Check.php
+	DomainContacts.php
+	DomainExp.php
+	DomainMain.php
+	DomainNs.php
+	index.php
+	LogIn.php
+	RegisterName.php
+	SelectService.php
+	Success.php
+
+	/css		style sheet
+	/images		all graphics
+	/include	all PHP include files
+	/js		all javascript files
+	/popUps		javascripts pop up files
+	/Setup		client UI setup files
+	
+
+Text Docs		Contents
+--------------		--------------------------------
+/Contents.txt		List of all docs
+/CustomClient.txt	Description of HTTP transactions with eNom
+/ReadmeFirst.txt	Description of setting up eNom reseller account and validation
+		
+
+
+

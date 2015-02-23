@@ -1,0 +1,8 @@
+*.exe
+Code Samples/CSharp/EnomTools/DomainInfo/bin/Debug/DomainInfo.exe.config
+*.pdb
+*.pdb
+*.manifest
+*.user
+*.cache
+*.cache

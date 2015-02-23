@@ -1,0 +1,544 @@
+Writing Your Own Interface to eNom's URL Interface 
+
+eNom's URL Interface allows clients to access our domain name registration 
+features from their own systems.  This document will describe how to 
+interface programmatically.
+
+The HTTP Protocol
+
+The server side of this protocol is simply an asp page running on IIS.  
+Although it is a web page, it is not meant to be accessed directly by 
+your users.  It is meant to be accessed from your back end program running 
+on your web site.  This is just to make it easier for you to develop an 
+interface to it.
+
+HTTP requests are TCP connections to either port 80 (plaintext), or port 
+443 (SSL) on the given server.  After you connect to the server, the HTTP 
+request is sent as follows (example URL string shown):
+
+GET /interface.asp?command=check&tld=com&sld=mydomain&responsetype=text HTTP/1.0<cr><lf>
+<cr><lf>
+
+The URL string parameter will be described below.  After you send the 
+request, the response will come back in the following format (example 
+data shown):
+
+HTTP/1.1 200 OK
+Server: Microsoft-IIS/4.0
+Date: Mon, 10 Apr 2000 20:05:54 GMT
+Content-Type: text/html
+Set-Cookie: ASPSESSIONIDGQGGQGPQ=NJIFGMHCGPINKAKLLJCICJFN; path=/
+Cache-control: private
+
+;Debug info etc.
+Command=CHECK
+RRPCode=210
+RRPText=Domain name available
+ErrCount=0
+
+The header information may vary.  A blank line signals the end of the 
+headers.  The page is simply a list of name=value pairs (If debugging is 
+activated on the server, there may be additional text before the name=value 
+pairs.  These lines will start with a semicolon (;).  These can be ignored).  
+The server closes the connection after it sends the page.
+
+Parameters
+
+The GET request requires that all parameters be passed in the URL.  The URL 
+in the GET request will always start with:
+
+/interface.asp?
+
+Here is a list of all possible parameters and their use:
+
+Parameter	Description
+Uid	Username
+Pw	Password
+Command	Command.  See "commands" below
+Sld	Second level domain (i.e. "enom")
+Tld	Top level domain (i.e. "com")
+Usedns	Can specify default nameservers.  Set to "eNom"
+	to default to eNom's nameservers.  Otherwise 
+	use NS(x) (see below) to specify nameservers.
+NumYears	Number of years to register a name for
+Reference	Unique reference number of use with GETRESULT
+Getbalance	Set to "1" to return balance with any command
+Pageurl	URL for SETPAGEURL
+Responsetype	Set to "text"
+Domainpassword	Password for SETPASSWORD
+Accesslevel	Access level for SETPASSWORD
+NS1 .. NS12	Fill in with any number of nameservers.  These 
+	will be set when you register the name with
+	PURCHASE
+Address1 .. Address5	"From" addresses for FORWARDING
+ForwardTo1 .. ForwardTo5	"To" addresses for FORWARDING
+
+HostName1..HostName100	Host name for SETHOSTS
+Address1..Address100	Address for SETHOSTS
+RecordType1..RecordType100	Record type for SETHOSTS
+MXPref1..MXPref100	MX preference for SETHOSTS
+
+Registrant information to be specified with PURCHASE or CONTACTS
+
+RegistrantAddress1
+RegistrantAddress2
+RegistrantCity
+RegistrantCountry
+RegistrantEmailAddress
+RegistrantFax
+RegistrantFirstName
+RegistrantJobTitle
+RegistrantLastName
+RegistrantOrganizationName
+RegistrantPhone
+RegistrantPostalCode
+RegistrantStateProvince
+RegistrantStateProvinceChoice
+
+Tech contact information to be specified withPURCHASE or CONTACTS
+
+TechAddress1
+TechAddress2
+TechCity
+TechCountry
+TechEmailAddress
+TechFax
+TechFirstName
+TechJobTitle
+TechLastName
+TechOrganizationName
+TechPhone
+TechPostalCode
+TechStateProvince
+TechStateProvinceChoice
+
+Admin contact information to be specified with PURCHASE or CONTACTS
+
+AdminAddress1	
+AdminAddress2
+AdminCity
+AdminCountry
+AdminEmailAddress
+AdminFax
+AdminFirstName
+AdminJobTitle
+AdminLastName
+AdminOrganizationName
+AdminPhone
+AdminPostalCode
+AdminStateProvince
+AdminStateProvinceChoice
+
+Aux billing information to be specified with PURCHASE or CONTACTS
+
+AuxBillingAddress1
+AuxBillingAddress2
+AuxBillingCity
+AuxBillingCountry
+AuxBillingEmailAddress
+AuxBillingFax
+AuxBillingFirstName
+AuxBillingJobTitle
+AuxBillingLastName
+AuxBillingOrganizationName
+AuxBillingPhone
+AuxBillingPostalCode
+AuxBillingStateProvince
+AuxBillingStateProvinceChoice
+
+Response Values
+
+Here is a list of values that will be returned by the server and their meaning:
+
+Value	Description
+Command	The command that was executed
+RRPCode	RRP code returned from NSI
+RRPText	RRP text returned from NSI
+ErrCount	Number of errors
+Err1 .. Err(x)	Error descriptions.  There will be ErrCount
+	number of these
+Balance	Your account balance
+
+When you get a response, first check ErrCount.  If this is not 0, Err1 
+through Err(x) will contain error messages from eNom.  If ErrCount is 0, 
+then check RRPCode for the value you are expecting (only for commands 
+that require RRP).
+
+Commands
+
+You can only execute one command per transaction.  These are the valid 
+values for "Command".
+
+"CHECK"
+Checks to see if a given domain name is registered or not.  Required parameters:
+
+Sld	Second level domain name
+Tld	Top level domain name
+
+RRPCode:
+210 Domain available
+211 Domain not available
+
+You can use the Check command to check .com .net and .org all at the 
+same time for a given SLD.  Specify "*" for the TLD and all top level 
+domains will be checked.  In response you will get: (where <x> is a 
+number from 1 to 3)
+
+	Domain<x>				Full domain name that was checked
+	RRPCode<x>				RRP code for this domain check
+	RRPText<x>				RRP text for this domain check
+
+
+"PURCHASE"
+Purchases (registers) a new domain name.  Required parameters:
+
+Uid	Your username
+Pw	Your password
+Sld	Second level domain name
+Tld	Top level domain name
+
+You can optionally specify the number of years to register the name by 
+passing the parameter "NumYears".  If you do not specify this, the default
+for your account is used instead.
+
+Specify name servers either by setting Usedns or NS(x) params.  If you do not specify either, the domain name will not have any name servers.
+
+Specify WhoIs information by setting the Registrant*, Admin*, Tech*, 
+and AuxBilling* parameters.  You can specify any information you'd like.  
+It will show up when somebody does a WhoIs on the domain name.
+
+RRPCode:
+200 Domain was registered
+540 Domain is already registered (by another
+registrar)
+554 Domain is already registered (by eNom)
+541 Some domain name information you passed
+was invalid (most likely the nameservers
+are not registered)
+All Others			Command failed (check RRPText)
+
+
+"MODIFYNS"
+
+Modifies the name servers that serve the specified domain name.  
+Required parameters:
+
+Uid	Your username
+Pw	Your password
+Sld	Second level domain name
+Tld	Top level domain name
+
+Specify name servers either by setting Usedns or NS(x) params.  If 
+you do not specify either, the domain will not have any name servers.
+
+RRPCode:
+	200				Success
+	541				Invalid nameserver(s)
+	All others			Command failed (check RRPText)
+
+"CONTACTS"
+
+Changes contact information for a previously registered domain name.  
+Required parameters:
+
+Uid	Your username
+Pw	Your password
+Sld	Second level domain name
+Tld	Top level domain name
+
+Specify WhoIs information by setting the Registrant*, Admin*, Tech*, and 
+AuxBilling* parameters.  You can specify any information you'd like.  It 
+will show up when somebody does a WhoIs on the domain name.
+
+NOTE: When you invoke this command, all previous contact information is 
+deleted, and replaced with the data you specified.  If you do not specify 
+any data at all for a contact, that contact will be deleted from the system.
+
+If ErrCount is 0, the command succeeded.  Otherwise check Err(x) values.
+
+
+"FORWARDING"
+
+Sets email forwarding addresses.  Required parameters:
+
+Uid	Your username
+Pw	Your password
+Sld	Second level domain name
+Tld	Top level domain name
+Address(x)	Email name (will be <name>@sld.tld)
+ForwardTo(x)	Full email address to forward to
+
+All previous email forwarding accounts are deleted, and replaced with the 
+ones you provide.
+If ErrCount is 0, the command succeeded.  Otherwise check Err(x) values.
+
+"SETPASSWORD"
+Sets the domain password for a given domain so that a client may log in 
+and have access to change host/email information.  Required parameters:
+
+Uid	Your username
+Pw	Your password
+Sld	Second level domain name
+Tld	Top level domain name
+DomainPassword 	Password for the domain
+AccessLevel	"1" = all access, "0" = restricted access.
+
+The end user can then administer the specified domain at http://access.enom.com.
+
+If ErrCount is 0, the command succeeded.  Otherwise check Err(x) values.
+
+"VALIDATEPASSWORD"
+Verifies that a specified password matches the password previously set 
+with "SETPASSWORD'.  Required parameters:
+
+Uid	Your username
+Pw	Your password
+Sld	Second level domain name
+Tld	Top level domain name
+DomainPassword 	Password for the domain
+AccessLevel	"1" = all access, "0" = restricted access.
+
+If ErrCount is 0, the password was valid.  Otherwise check Err(x) values.
+
+"SETPAGEURL"
+Sets URL forwarding for a domain.  Required parameters:
+
+Uid	Your username
+Pw	Your password
+Sld	Second level domain name
+Tld	Top level domain name
+Pageurl	URL to forward www.<sld>.<tld> to
+
+This sets up www.<SLD>.<TLD> to redirect to the specified PageURL.  This 
+function is obsolete; please use SetHosts instead.
+
+If ErrCount is 0, the command succeeded.  Otherwise check Err(x) values.
+
+"SETHOSTS"
+Sets up DNS hosts for a domain.  Required parameters:
+
+Uid	Your username
+Pw	Your password
+SLD	Second level domain name
+TLD	Top level domain name
+	HostName<x>				Host name
+	Address<x>				Address host points to
+	RecordType<x>			Type of host
+	MXPref<x>				Mail preference (MX/MXE only)
+
+All previous hosts are deleted, and replaced with the ones you specify.
+
+RecordType values:
+	RecordType value	Type				Address type
+	A			Address			IP
+	CNAME		Pointer to another host	Hostname
+	MX			Mail				Hostname
+	MXE			Mail (easy)			IP 1
+	URL			URL Forwarding		URL 2
+	FRAME		URL Forwarding		URL 3
+
+Notes:
+1. The MXE record sets up an A record with the IP specified, with an MX 
+   record pointing to it.
+2. Simple HTTP redirection to the specified URL.
+3. An invisible HTML frame is displayed, with the contents being the 
+   specified URL.  This way the original domain name stays in the address bar.  
+   *IF YOU DON'T NEED TO REDIRECT TO A URL, do not use this function, as it adds 
+   a layer of complexity by going through an intermediate server.  If you have a 
+   dedicated server use an A record instead.
+
+
+If ErrCount is 0, the command succeeded.  Otherwise check Err(x) values.
+
+"GETDNS"
+Gets all DNS servers associated with the domain.  Required parameters:
+
+Uid	Your username
+Pw	Your password
+SLD	Second level domain name
+TLD	Top level domain name
+
+The data is returned in these values:
+	"NSCount"				Number of nameservers returned
+	"DNS1".."DNS<NSCount>"		Nameserver hostnames (there will be
+NSCount number of them)
+	"UseDNS"				The predefined nameservers used by the 
+						domain.  Currently, will be "eNom" if
+						the domain is using eNom's nameservers,
+						and blank otherwise.
+	"NSStatus"				The current status of the information in
+						eNom's nameservers, if the domain is
+						using them.  Values are:
+						"NA" - Not using eNom's nameservers
+						"No" - Not in the nameservers yet
+						"Updating" - New values are pending being
+							sent to the nameservers
+						"Yes" - All nameservers are updated with
+							the current information
+
+If ErrCount is 0, the command succeeded.  Otherwise check Err(x) values.
+
+"GETDNSINFO"
+Rereives whether the domain is using eNom's nameservers and the status of 
+the information in the nameservers, without the overhead of retreiving the 
+actual nameserver values.  Required parameters:
+
+Uid	Your username
+Password	Your password
+SLD	Second level domain name
+TLD	Top level domain name
+
+The data is returned in these values:
+	"UseDNS"				The predefined nameservers used by the 
+						domain.  Currently, will be "eNom" if
+						the domain is using eNom's nameservers,
+						and blank otherwise.
+	"NSStatus"				The current status of the information in
+						eNom's nameservers, if the domain is
+						using them.  Values are:
+						"NA" - Not using eNom's nameservers
+						"No" - Not in the nameservers yet
+						"Updating" - New values are pending being
+							sent to the nameservers
+						"Yes" - All nameservers are updated with
+							the current information
+
+If ErrCount is 0, the command succeeded.  Otherwise check Err(x) values.
+
+"GETCONTACTS"
+Gets all contact information for a domain.  Required parameters:
+
+Uid	Your username
+Pw	Your password
+SLD	Second level domain name
+TLD	Top level domain name
+
+The data is returned in these values:
+TechEmailAddress			Technical contact
+TechFax
+TechPhone
+TechCountry
+TechPostalCode
+TechStateProvinceChoice
+TechStateProvince
+TechCity
+TechAddress2
+TechAddress1
+TechLastName
+TechFirstName
+TechJobTitle
+TechOrganizationName
+
+RegistrantEmailAddress		Registrant contact
+RegistrantFax
+RegistrantPhone
+RegistrantCountry
+RegistrantPostalCode
+RegistrantStateProvinceChoice
+RegistrantStateProvince
+RegistrantCity
+RegistrantAddress2
+RegistrantAddress1
+RegistrantLastName
+RegistrantFirstName
+RegistrantJobTitle
+RegistrantOrganizationName
+
+AdminEmailAddress			Administrative contact
+AdminFax
+AdminPhone
+AdminCountry
+AdminPostalCode
+AdminStateProvinceChoice
+AdminStateProvince
+AdminCity
+AdminAddress2
+AdminAddress1
+AdminLastName
+AdminFirstName
+AdminJobTitle
+AdminOrganizationName
+
+AuxEmailAddress			Aux Billing Contact
+AuxFax
+AuxPhone
+AuxCountry
+AuxPostalCode
+AuxStateProvinceChoice
+AuxStateProvince
+AuxCity
+AuxAddress2
+AuxAddress1
+AuxLastName
+AuxFirstName
+AuxJobTitle
+AuxOrganizationName
+
+If ErrCount is 0, the command succeeded.  Otherwise check Err(x) values.
+
+"GETHOSTS"
+Gets all DNS host entries for a domain.  Required parameters:
+
+Uid	Your username
+Password	Your password
+SLD	Second level domain name
+TLD	Top level domain name
+
+The data is returned in these values:
+	"HostCount"				Number of hosts
+	"HostName1".."HostName<x>"	The host name
+	"Address1".."Address<x>"		The address this host points to
+	"RecordType1".."RecordType<x>"	The record type
+	"MXPref1".."MXPref<x>"		For mail records, the preference
+
+See "SETHOSTS" for a description of host types.
+
+If ErrCount is 0, the command succeeded.  Otherwise check Err(x) values.
+
+"GETFORWARDING"
+Retreives all email forwarding accounts for a domain.  Required parameters:
+
+Uid	Your username
+Password	Your password
+SLD	Second level domain name
+TLD	Top level domain name
+
+The data is returned in these values (retrieve by calling the Response( Name ) method):
+	"EmailCount"				Number of email forwarding accounts
+	"Username1".."Username<x>"	Username (@sld.tld)
+	"ForwardTo1".."ForwardTo<x>"	Email address to forward to
+
+If ErrCount is 0, the command succeeded.  Otherwise check Err(x) values.
+
+
+Field Lengths
+
+Field Name	Maximum Length
+*OrganizationName	60
+*JobTitle	60
+*FirstName	60
+*LastName	60
+*Address1	60
+*Address2	60
+*City	60
+*StateProvince	60
+*StateProvinceChoice	20
+*PostalCode	15
+*Country 	60
+*Phone	20
+*Fax	20
+*EmailAddress	128
+Uid	20
+Pw	20
+SLD	63
+TLD	15
+Address<x>	30
+ForwardTo<x>	130
+NS<x>	60
+PageURL	130
+HostName<x>	60
+RecordType<x>	5
+Address<x>	130
+MXPref<x>	integer
+
+

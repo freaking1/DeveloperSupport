@@ -1,0 +1,11 @@
+here are some DNS commands:
+
+RegisterNameServer
+http://resellertest.enom.com/interface.asp?command=registernameserver&uid=loginid&pw=password&add=true&nsname=dns1.domain.com&ip=164.133.34.42&responsetype=xml
+
+UpdateNameserver
+http://resellertest.enom.com/interface.asp?command=updatenameserver&sld=domain&tld=com&OldIP=163.51.174.113&NewIP=163.51.174.112&NS=dns1.domain.com&uid=loginid&pw=password
+
+DeleteNameserver
+http://resellertest.enom.com/interface.asp?command=deletenameserver&sld=domain&tld=com&NS=dns1.domain.com&uid=loginid&pw=password
+
