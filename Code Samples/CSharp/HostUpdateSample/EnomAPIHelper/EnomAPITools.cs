@@ -5,14 +5,13 @@ namespace Enom.API.EnomAPIHelper
     using System.Collections;
     using System.Collections.Generic;
     using System.IO;
-    using System.Xml;
-    using System.Text;
     using System.Net;
-    using System.Text.RegularExpressions;
     using System.Net.Security;
-    using System.Web;
-    using System.Security.Cryptography;
     using System.Security.Cryptography.X509Certificates;
+    using System.Text;
+    using System.Text.RegularExpressions;
+    using System.Web;
+    using System.Xml;
 
     public class EnomAPITools
     {
