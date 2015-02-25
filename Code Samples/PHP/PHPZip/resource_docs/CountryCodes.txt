@@ -1,0 +1,246 @@
+abbreviation ="US" country = United States
+abbreviation ="AF" country =Afghanistan
+abbreviation ="AL" country =Albania
+abbreviation ="DZ" country =Algeria
+abbreviation ="AS" country =American Samoa
+abbreviation ="AD" country =Andorra
+abbreviation ="AO" country =Angola
+abbreviation ="AI" country =Anguilla
+abbreviation ="AQ" country =Antarctica
+abbreviation ="AG" country =Antigua and Barbuda
+abbreviation ="AR" country =Argentina
+abbreviation ="AM" country =Armenia
+abbreviation ="AW" country =Aruba
+abbreviation ="AC" country =Ascension Island 
+abbreviation ="AU" country =Australia
+abbreviation ="AT" country =Austria
+abbreviation ="AZ" country =Azerbaijan
+abbreviation ="BS" country =The Bahamas
+abbreviation ="BH" country =Bahrain
+abbreviation ="BD" country =Bangladesh
+abbreviation ="BB" country =Barbados
+abbreviation ="BY" country =Belarus
+abbreviation ="BE" country =Belgium
+abbreviation ="BZ" country =Belize
+abbreviation ="BJ" country =Benin
+abbreviation ="BM" country =Bermuda
+abbreviation ="BT" country =Bhutan
+abbreviation ="BO" country =Bolivia
+abbreviation ="BA" country =Bosnia and Herzegovina
+abbreviation ="BW" country =Botswana
+abbreviation ="BV" country =Bouvet Island
+abbreviation ="BR" country =Brazil
+abbreviation ="IO" country =British Indian Ocean Territory
+abbreviation ="BN" country =Brunei Darussalam
+abbreviation ="BG" country =Bulgaria
+abbreviation ="BF" country =Burkina Faso
+abbreviation ="BI" country =Burundi
+abbreviation ="CM" country =Cambodia
+abbreviation ="CM" country =Cameroon
+abbreviation ="CA" country =Canada
+abbreviation ="CV" country =Cape Verde
+abbreviation ="KY" country =Cayman Islands
+abbreviation ="CF" country =Central African Republic 
+abbreviation ="TD" country =Chad
+abbreviation ="CL" country =Chile
+abbreviation ="CN" country =China
+abbreviation ="CX" country =Christmas Island
+abbreviation ="CC" country =Cocos (Keeling) Islands
+abbreviation ="CO" country =Colombia
+abbreviation ="CM" country =Comoros
+abbreviation ="CG" country =Congo, Republic of
+abbreviation ="CD" country =Congo, Democratic Rep. of
+abbreviation ="CK" country =Cook Islands
+abbreviation ="CR" country =Costa Rica
+abbreviation ="CI" country =Côte d'Ivoire
+abbreviation ="HR" country =Croatia
+abbreviation ="CU" country =Cuba
+abbreviation ="CY" country =Cyprus
+abbreviation ="CZ" country =Czech Republic
+abbreviation ="DK" country =Denmark
+abbreviation ="DJ" country =Djibouti
+abbreviation ="DM" country =Dominica
+abbreviation ="DO" country =Dominican Republic  
+abbreviation ="TP" country =East Timor
+abbreviation ="EC" country =Ecuador
+abbreviation ="EG" country =Egypt
+abbreviation ="SV" country =El Salvador
+abbreviation ="GC" country =Equatorial Guinea
+abbreviation ="ER" country =Eritrea
+abbreviation ="EE" country =Estonia
+abbreviation ="ET" country =Ethiopia
+abbreviation ="FK" country =Falkland Islands (Malvinas)
+abbreviation ="FO" country =Faroe Islands
+abbreviation ="FJ" country =Fiji
+abbreviation ="FI" country =Finland
+abbreviation ="FR" country =France
+abbreviation ="FX" country =France Métropolitaine
+abbreviation ="GF" country =French Guyana
+abbreviation ="PF" country =French Polynesia
+abbreviation ="TF" country =French Southern Territories
+abbreviation ="GA" country =Gabon
+abbreviation ="GM" country =Gambia
+abbreviation ="GE" country =Georgia
+abbreviation ="DE" country =Germany
+abbreviation ="GA" country =Ghana
+abbreviation ="BI" country =Gibraltar
+abbreviation ="GR" country =Greece
+abbreviation ="GL" country =Greenland
+abbreviation ="GD" country =Grenada
+abbreviation ="GP" country =Guadeloupe
+abbreviation ="GU" country =Guam
+abbreviation ="GT" country =Guatemala
+abbreviation ="GG" country =Guernsey
+abbreviation ="GN" country =Guinea
+abbreviation ="GW" country =Guinea-Bissau
+abbreviation ="GY" country =Guyana
+abbreviation ="HT" country =Haiti
+abbreviation ="HM" country =Heard and McDonald Islands
+abbreviation ="HN" country =Honduras
+abbreviation ="HK" country =Hong Kong
+abbreviation ="HU" country =Hungary
+abbreviation ="IS" country =Iceland
+abbreviation ="IN" country =India
+abbreviation ="ID" country =Indonesia
+abbreviation ="IR" country =Iran
+abbreviation ="IQ" country =Iraq
+abbreviation ="IE" country =Ireland
+abbreviation ="GB4" country =Isle of Man
+abbreviation ="IL" country =Israel
+abbreviation ="IT" country =Italy
+abbreviation ="JM" country =Jamaica
+abbreviation ="JP" country =Japan
+abbreviation ="JR" country =Jersey
+abbreviation ="JO" country =Jordan
+abbreviation ="KZ" country =Kazakhstan
+abbreviation ="KE" country =Kenya
+abbreviation ="KI" country =Kiribati
+abbreviation ="KP" country =Korea, North
+abbreviation ="KR" country =Korea, South
+abbreviation ="KW" country =Kuwait
+abbreviation ="KG" country =Kyrgyzstan
+abbreviation ="LA" country =Laos
+abbreviation ="LV" country =Latvia
+abbreviation ="LB" country =Lebanon
+abbreviation ="LS" country =Lesotho
+abbreviation ="LR" country =Liberia
+abbreviation ="LY" country =Libya
+abbreviation ="LI" country =Liechtenstein
+abbreviation ="LT" country =Lithuania
+abbreviation ="LU" country =Luxembourg
+abbreviation ="MO" country =Macao
+abbreviation ="MK" country =Macedonia, F.Y.R.O.
+abbreviation ="MG" country =Madagascar
+abbreviation ="MW" country =Malawi
+abbreviation ="MY" country =Malaysia
+abbreviation ="MV" country =Maldives
+abbreviation ="ML" country =Mali
+abbreviation ="MT" country =Malta
+abbreviation ="MH" country =Marshall Islands
+abbreviation ="MQ" country =Martinique
+abbreviation ="MR" country =Mauritania
+abbreviation ="MU" country =Mauritius
+abbreviation ="YT" country =Mayotte
+abbreviation ="MX" country =Mexico
+abbreviation ="FM" country =Micronesia
+abbreviation ="MD" country =Moldova
+abbreviation ="MC" country =Monaco
+abbreviation ="MN" country =Mongolia
+abbreviation ="MS" country =Montserrat
+abbreviation ="MA" country =Morocco
+abbreviation ="MZ" country =Mozambique
+abbreviation ="MM" country =Myanmar
+abbreviation ="NA" country =Namibia
+abbreviation ="NR" country =Nauru
+abbreviation ="NP" country =Nepal
+abbreviation ="NL" country =Netherlands
+abbreviation ="AN" country =Netherlands Antilles
+abbreviation ="NC" country =New Caledonia
+abbreviation ="NZ" country =New Zealand
+abbreviation ="NI" country =Nicaragua
+abbreviation ="NE" country =Niger
+abbreviation ="NG" country =Nigeria
+abbreviation ="NU" country =Niue
+abbreviation ="NF" country =Norfolk Island
+abbreviation ="NP" country =Northern Mariana Islands 
+abbreviation ="NO" country =Norway
+abbreviation ="OM" country =Oman
+abbreviation ="PK" country =Pakistan
+abbreviation ="PW" country =Palau
+abbreviation ="PA" country =Panama
+abbreviation ="PG" country =Papua New Guinea
+abbreviation ="PY" country =Paraguay
+abbreviation ="PE" country =Peru
+abbreviation ="PH" country =Philippines
+abbreviation ="PN" country =Pitcairn Island
+abbreviation ="PL"  country =Poland
+abbreviation ="PT" country =Portugal
+abbreviation ="PR" country =Puerto Rico
+abbreviation ="QA" country =Qatar
+abbreviation ="RE" country =Reunion
+abbreviation ="RO" country =Romania
+abbreviation ="RU" country =Russia
+abbreviation ="RW" country =Rwanda
+abbreviation ="KN" country =Saint Kitts and Nevis
+abbreviation ="LC" country =Saint Lucia
+abbreviation ="VC" country =Saint Vincent and the Grenadines
+abbreviation ="WS" country =Samoa
+abbreviation ="SM" country =San Marino
+abbreviation ="ST" country =Sao Tome and Principe
+abbreviation ="SA" country =Saudi Arabia
+abbreviation ="SN" country =Senegal
+abbreviation ="SC" country =Seychelles
+abbreviation ="SL" country =Sierra Leone
+abbreviation ="SG" country =Singapore
+abbreviation ="DK" country =Slovakia
+abbreviation ="SI" country =Slovenia
+abbreviation ="SB" country =Solomon Islands
+abbreviation ="SO" country =Somalia
+abbreviation ="ZA" country =South Africa
+abbreviation ="GS" country =S Georgia and S Sandwich Islands
+abbreviation ="ES" country =Spain
+abbreviation ="LK" country =Sri Lanka
+abbreviation ="SH" country =St. Helena
+abbreviation ="PM" country =St. Pierre and Miquelon
+abbreviation ="SD" country =Sudan
+abbreviation ="SR" country =Suriname
+abbreviation ="SJ" country =Svalbard and Jan Mayen Islands
+abbreviation ="SZ" country =Swaziland
+abbreviation ="SE" country =Sweden
+abbreviation ="CH" country =Switzerland
+abbreviation ="SY" country =Syria
+abbreviation ="TW" country =Taiwan
+abbreviation ="TJ" country =Tajikistan
+abbreviation ="TZ" country =Tanzania
+abbreviation ="TH" country =Thailand
+abbreviation ="TG" country =Togo
+abbreviation ="TK" country =Tokelau
+abbreviation ="TO" country =Tonga
+abbreviation ="TT" country =Trinidad and Tobago
+abbreviation ="TN" country =Tunisia
+abbreviation ="TR" country =Turkey
+abbreviation ="TM" country =Turkmenistan
+abbreviation ="TC" country =Turk and Caicos Islands
+abbreviation ="TV" country =Tuvalu
+abbreviation ="UG" country =Uganda
+abbreviation ="UA" country =Ukraine
+abbreviation ="AE" country =United Arab Emirates
+abbreviation ="GB" country =United Kingdom
+abbreviation ="US" country = United States
+abbreviation ="UM" country =U.S. Minor Outlying Islands
+abbreviation ="UY" country =Uruguay
+abbreviation ="UZ" country =Uzbekistan
+abbreviation ="VU" country =Vanuatu
+abbreviation ="VA" country =Vatican City State
+abbreviation ="VE" country =Venezeula
+abbreviation ="VN" country =Vietnam
+abbreviation ="VG" country =Virgin Islands (British)
+abbreviation ="VI" country =U.S. Virgin Islands
+abbreviation ="WF" country =Wallis and Futuna Islands
+abbreviation ="WS" country =Western Samoa
+abbreviation ="EH" country =Western Sahara
+abbreviation ="YE" country =Yemen
+abbreviation ="YU" country =Yugoslavia
+abbreviation ="ZR" country =Zaire
+abbreviation ="ZM" country =Zambia
+abbreviation ="ZW" country =Zimbabwe

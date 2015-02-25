@@ -1,0 +1,11 @@
+To set the dot name forwarding through the API:
+
+First, GET the current forwarding and domain name ID:
+Command: getdotnameforwarding
+
+http://reseller.enom.com/interface.asp?command=getdotnameforwarding&uid=YOURLOGIN&pw=********&responsetype=xml&sld=firstname.lastname&tld=name
+
+Next, SET the new address to forward to:
+Command: setdotnameforwarding
+
+http://reseller.enom.com/interface.asp?command=setdotnameforwarding&uid=YOURLOGIN&pw=********&responsetype=xml&domainnameid=318078585&ForwardTo=emailaddress@domainname.com
