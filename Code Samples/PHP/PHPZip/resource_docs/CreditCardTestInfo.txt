@@ -1,9 +1,0 @@
-UseCreditCard
-CreditCardNumber 		4111111111111111
-CreditCardExpMonth		01
-CreditCardExpYear		2004
-CCName				test
-CardType			visa
-CCAddress 			254 elmwynd drive
-CCZip 				07050
-CVV2 				758
