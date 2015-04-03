@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{021DFEE4-BADC-4D14-841D-749C71D604EE}</ProjectGuid>
+    <ProjectGuid>{B27EBEF8-5F69-4932-A619-120B4306DF69}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Enom.Tools.EnomCLI</RootNamespace>
-    <AssemblyName>EnomCLI</AssemblyName>
+    <RootNamespace>Enom.Tools.EnomSimpleAPI.SimpleAPISample</RootNamespace>
+    <AssemblyName>SimpleAPISample</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,8 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandProcessor.cs" />
-    <Compile Include="EnomUtilities.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -50,9 +48,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CommandListOld.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <ProjectReference Include="..\EnomSimpleAPI\EnomSimpleAPI.csproj">
+      <Project>{64ea0ffb-e268-4c85-a18f-8fb18938985e}</Project>
+      <Name>EnomSimpleAPI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

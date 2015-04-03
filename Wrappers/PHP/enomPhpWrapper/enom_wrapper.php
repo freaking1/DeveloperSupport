@@ -1,6 +1,5 @@
 <?php
 /*
-* Enom class for Laravel 4
 * Depends on Curl Wrapper : http://getsparks.org/packages/curl/show
 */
 class enom_wrapper
